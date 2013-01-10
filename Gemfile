@@ -31,6 +31,13 @@ end
 
 gem 'jquery-rails'
 
+# Heroku uses the PostgreSQL database (pronounced “post-gres-cue-ell”, and often
+# called “Postgres” for short), which means that we need to add the pg gem in the
+# production environment to allow Rails to talk to Postgres
+group :production do
+  gem 'pg', '0.12.2'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
