@@ -12,8 +12,9 @@ gem 'rails', '3.2.1'
 #Note that we’ve also taken this opportunity to arrange for SQLite
 #to be included only in a development environment, which prevents
 #potential conflicts with the database used by Heroku
-group :development do
+group :development, :test do
   gem 'sqlite3', '1.3.5'
+  gem 'rspec-rails', '2.11.0'
 end
 
 
@@ -30,6 +31,13 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+# We also include the Capybara gem, which allows us to
+# simulate a user’s interaction with the sample application
+# using a natural English-like syntax
+group :test do
+  gem 'capybara', '1.1.2'
+end
 
 # Heroku uses the PostgreSQL database (pronounced “post-gres-cue-ell”, and often
 # called “Postgres” for short), which means that we need to add the pg gem in the
